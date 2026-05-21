@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorify - Home Accessories Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <span><i class="fa-solid fa-truck"></i> Free Shipping on Orders Over $100</span>
+        <div class="top-links">
+            <a href="#"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+            <a href="#"><i class="fa-solid fa-circle-question"></i> Help Center</a>
+            <a href="#"><i class="fa-solid fa-user"></i> Login / Register</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <h2>Decorify <span style="color: #d48a8a;">✿</span></h2>
+            <p>Home Decoration</p>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Products</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="header-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-heart"></i>
+           <div class="cart-icon" style="cursor: pointer;" onclick="location.href='cart.html'">
+    <i class="fa-solid fa-basket-shopping"></i>
+    <span class="cart-count">0</span>
+</div>
+        </div>
+    </header>
+
+    <section class="hero-section" style="padding: 30px 8%; min-height: auto;">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Collection</span>
+                <h1 class="hero-title" style="font-size: 36px; margin-bottom: 5px;">Home Accessories</h1>
+                <p style="color: #666; font-size: 14px;">Home > Products > Accessories</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-wrapper">
+        <div class="container">
+            
+            <aside class="sidebar">
+                <h3 class="section-title">Categories</h3>
+             <ul class="categories-list">
+    <li><i class="fa-solid fa-border-all"></i> <a href="index.html">All Products</a></li>
+    <li><i class="fa-solid fa-chair"></i> <a href="furniture.html">Furniture</a></li>
+    <li><i class="fa-solid fa-image"></i> <a href="wall-decor.html">Wall Decor</a></li>
+    <li><i class="fa-solid fa-lightbulb"></i> <a href="lighting.html">Lighting</a></li>
+    <li><i class="fa-solid fa-seedling"></i> <a href="plants.html">Plants</a></li>
+    <li><i class="fa-solid fa-bag-shopping"></i> <a href="accessories.html">Accessories</a></li>
+</ul>
+
+                <div class="price-filter-box">
+                    <h3 class="section-title">Price Range</h3>
+                    <input type="range" min="5" max="200" value="100" class="price-slider">
+                    <div class="price-labels">
+                        <span>$5</span>
+                        <span>$200</span>
+                    </div>
+                    <button class="filter-action-btn">Filter Accessories</button>
+                </div>
+            </aside>
+
+            <section class="products-area">
+                <div class="products-filter-header">
+                    <p class="results-count">Showing 1–8 of 18 accessories results</p>
+                    <div class="sort-wrapper">
+                        <select class="sort-dropdown">
+                            <option>Sort by: Newest</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                    
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&q=80&w=400" alt="Decorative Vase">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Ceramic Decorative Vase</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(13)</span></div>
+                        <p class="product-price">$35.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=400" alt="Table Mirror">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Golden Desktop Mirror</h4>
+                        <div class="product-rating">⭐⭐⭐⭐☆ <span class="rating-count">(9)</span></div>
+                        <p class="product-price">$28.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1603006905393-0d198f92147a?auto=format&fit=crop&q=80&w=400" alt="Scented Candle">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Luxury Scented Candle</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(25)</span></div>
+                        <p class="product-price">$15.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1594913785162-e67853612503?auto=format&fit=crop&q=80&w=400" alt="Jewelry Box">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Velvet Jewelry Organizer</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(11)</span></div>
+                        <p class="product-price">$42.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400" alt="Coaster Set">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Pink Marble Coasters</h4>
+                        <div class="product-rating">⭐⭐⭐⭐☆ <span class="rating-count">(7)</span></div>
+                        <p class="product-price">$18.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=400" alt="Tissue Box">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Nordic Tissue Holder</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(14)</span></div>
+                        <p class="product-price">$22.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=400" alt="Bookends">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Abstract Ceramic Bookends</h4>
+                        <div class="product-rating">⭐⭐⭐⭐☆ <span class="rating-count">(5)</span></div>
+                        <p class="product-price">$30.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=400" alt="Trays">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Minimalist Trinket Tray</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(19)</span></div>
+                        <p class="product-price">$12.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand-col">
+                <h3>Decorify ✿</h3>
+                <p>We provide the best quality home decoration products for your beautiful home.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="accessories.html">Products</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-links-col">
+                <h4>Customer Service</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Returns & Refunds</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-links-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get updates on new arrivals and special offers.</p>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2026 Decorify. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

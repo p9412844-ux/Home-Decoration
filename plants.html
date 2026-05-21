@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorify - Botanical Elegance Plants</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <span><i class="fa-solid fa-truck"></i> Free Shipping on Orders Over $100</span>
+        <div class="top-links">
+            <a href="#"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+            <a href="#"><i class="fa-solid fa-circle-question"></i> Help Center</a>
+            <a href="#"><i class="fa-solid fa-user"></i> Login / Register</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <h2>Decorify <span style="color: #d48a8a;">✿</span></h2>
+            <p>Home Decoration</p>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-heart"></i>
+            <div class="cart-icon" style="cursor: pointer;" onclick="location.href='cart.html'">
+    <i class="fa-solid fa-basket-shopping"></i>
+    <span class="cart-count">0</span>
+</div>
+        </div>
+    </header>
+
+    <section class="hero-section" style="padding: 40px 8%; min-height: auto;">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Beautiful Home</span>
+                <h1 class="hero-title" style="font-size: 38px; margin-bottom: 8px;">Botanical Elegance</h1>
+                <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Invite nature in and create a tranquil sanctuary with our exquisite new indoor plant assortment.</p>
+                <p style="color: #a0a0a0; font-size: 13px; font-weight: 500;">Home > Products > Plants</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-wrapper">
+        <div class="container">
+            
+            <aside class="sidebar">
+                <h3 class="section-title">Categories</h3>
+                <ul class="categories-list">
+    <li><i class="fa-solid fa-border-all"></i> <a href="index.html">All Products</a></li>
+    <li><i class="fa-solid fa-chair"></i> <a href="furniture.html">Furniture</a></li>
+    <li><i class="fa-solid fa-image"></i> <a href="wall-decor.html">Wall Decor</a></li>
+    <li><i class="fa-solid fa-lightbulb"></i> <a href="lighting.html">Lighting</a></li>
+    <li><i class="fa-solid fa-seedling"></i> <a href="plants.html">Plants</a></li>
+    <li><i class="fa-solid fa-bag-shopping"></i> <a href="accessories.html">Accessories</a></li>
+</ul>
+
+                <div class="price-filter-box">
+                    <h3 class="section-title">Price Range</h3>
+                    <input type="range" min="10" max="500" value="250" class="price-slider">
+                    <div class="price-labels">
+                        <span>$10</span>
+                        <span>$500</span>
+                    </div>
+                    <button class="filter-action-btn">Filter</button>
+                </div>
+            </aside>
+
+            <section class="products-area">
+                <div class="products-filter-header">
+                    <p class="results-count">Showing 1–8 of 24 results</p>
+                    <div class="sort-wrapper">
+                        <select class="sort-dropdown">
+                            <option>Sort by: Newest</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                    
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1600411833196-7c1f6b1a8b90?auto=format&fit=crop&q=80&w=400" alt="Velvet Leaf Alocasia">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Velvet Leaf Alocasia</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(18)</span></div>
+                        <p class="product-price">$35.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&q=80&w=400" alt="Pink Princess Philodendron">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Pink Princess Philodendron</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(9)</span></div>
+                        <p class="product-price">$85.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1533038590840-1cde6e668a91?auto=format&fit=crop&q=80&w=400" alt="Geometric Terrarium Kit">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Geometric Terrarium Kit</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(12)</span></div>
+                        <p class="product-price">$40.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1614594805323-e5a98533c04a?auto=format&fit=crop&q=80&w=400" alt="Tall Monstera Adansonii">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Tall Monstera Adansonii</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(22)</span></div>
+                        <p class="product-price">$60.00</p>

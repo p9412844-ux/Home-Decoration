@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorify - Your Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cart-wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 6%;
+        }
+        .cart-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            margin-bottom: 30px;
+            color: #222;
+        }
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #f5eae9;
+        }
+        .cart-table th {
+            background-color: #fcebeb;
+            color: #d98888;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        .cart-table td {
+            padding: 20px 15px;
+            border-bottom: 1px solid #f5eae9;
+            vertical-align: middle;
+        }
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .cart-item-info img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .cart-item-name {
+            font-weight: 500;
+            color: #333;
+        }
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #ff4d4d;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .cart-summary {
+            margin-top: 30px;
+            background: #fff;
+            border: 1px solid #f5eae9;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin-left: auto;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        .checkout-btn {
+            width: 100%;
+            background-color: #d98888;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+        .checkout-btn:hover {
+            background-color: #c57676;
+        }
+        .empty-cart-msg {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h2>Decorify <span style="color: #d48a8a;">✿</span></h2>
+            <p>Home Decoration</p>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-icons">
+            <i class="fa-regular fa-heart"></i>
+            <div class="cart-icon" style="cursor: pointer;" onclick="location.href='cart.html'">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-wrapper">
+        <h2 class="cart-title">Your Shopping Cart</h2>
+        
+        <div id="cart-container-box">
+            </div>
+    </main>
+
+    <script>
+        // Is specific page ke liye simple display logic
+        document.addEventListener("DOMContentLoaded", () => {
+            const cartContainer = document.getElementById('cart-container-box');
+            let cart = JSON.parse(localStorage.getItem('decorify_cart')) || [];
+            
+            // Global badge update
+            const badge = document.querySelector('.cart-count');
+            if(badge) badge.innerText = cart.length;
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = `<div class="empty-cart-msg"><i class="fa-solid fa-basket-shopping" style="font-size: 48px; color: #f5eae9; margin-bottom: 15px; display: block;"></i>Your cart is empty. <a href="products.html" style="color: #d98888; text-decoration: none; font-weight: 500;">Shop Now</a></div>`;
+                return;
+            }
+
+            let tableHTML = `
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                // Price string se '$' sign hatakar number mein convert karna
+                let priceNum = parseFloat(item.price.replace('$', '')) || 0;
+                let itemTotal = priceNum * item.quantity;
+                subtotal += itemTotal;
+
+                tableHTML += `
+                    <tr>
+                        <td>
+                            <div class="cart-item-info">
+                                <img src="${item.image}" alt="${item.name}">
+                                <span class="cart-item-name">${item.name}</span>
+                            </div>
+                        </td>
+                        <td>${item.price}</td>
+                        <td><strong>${item.quantity}</strong></td>
+                        <td>$${itemTotal.toFixed(2)}</td>
+                        <td><button class="remove-btn" onclick="removeItem(${index})"><i class="fa-solid fa-trash-can"></i></button></td>
+                    </tr>
+                `;
+            });
+
+            tableHTML += `
+                    </tbody>
+                </table>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <strong>$${subtotal.toFixed(2)}</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span style="color: green; font-weight: 500;">FREE</span>
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid #f5eae9; margin-bottom: 15px;">
+                    <div class="summary-row" style="font-size: 18px; font-weight: 600; color: #222;">
+                        <span>Total:</span>
+                        <span style="color: #d98888;">$${subtotal.toFixed(2)}</span>
+                    </div>
+                    <button class="checkout-btn" onclick="alert('Order placed successfully! Thank you for shopping with Decorify.')">Proceed to Checkout</button>
+                </div>
+            `;
+
+            cartContainer.innerHTML = tableHTML;
+        });
+
+        // Item remove karne ka function
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('decorify_cart')) || [];
+            cart.splice(index, 1); // Array se item delete karein
+            localStorage.setItem('decorify_cart', JSON.stringify(cart)); // Update local storage
+            location.reload(); // Page reload karke screen update karein
+        }
+    </script>
+</body>
+</html>

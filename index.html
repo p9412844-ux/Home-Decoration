@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorify - Home Decoration Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <span><i class="fa-solid fa-truck"></i> Free Shipping on Orders Over $100</span>
+        <div class="top-links">
+            <a href="#"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+            <a href="#"><i class="fa-solid fa-circle-question"></i> Help Center</a>
+            <a href="#"><i class="fa-solid fa-user"></i> Login / Register</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <h2>Decorify <span style="color: #d48a8a;">✿</span></h2>
+            <p>Home Decoration</p>
+        </div>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="/about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-heart"></i>
+           <div class="cart-icon" style="cursor: pointer;" onclick="location.href='cart.html'">
+    <i class="fa-solid fa-basket-shopping"></i>
+    <span class="cart-count">0</span>
+</div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Beautiful Home</span>
+                <h1 class="hero-title">Decorative Collection</h1>
+                <p class="hero-description">Make your home more elegant and beautiful with our unique collection.</p>
+                <button class="shop-now-btn">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-bg-accent"></div>
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=600" alt="Beautiful Pink Interior Decor" class="hero-img">
+            </div>
+        </div>
+    </section>
+
+    <main class="main-wrapper">
+        <div class="container">
+            
+            <aside class="sidebar">
+                <h3 class="section-title">Categories</h3>
+                <ul class="categories-list">
+    <li><i class="fa-solid fa-border-all"></i> <a href="index.html">All Products</a></li>
+    <li><i class="fa-solid fa-chair"></i> <a href="furniture.html">Furniture</a></li>
+    <li><i class="fa-solid fa-image"></i> <a href="wall-decor.html">Wall Decor</a></li>
+    <li><i class="fa-solid fa-lightbulb"></i> <a href="lighting.html">Lighting</a></li>
+    <li><i class="fa-solid fa-seedling"></i> <a href="plants.html">Plants</a></li>
+    <li><i class="fa-solid fa-bag-shopping"></i> <a href="accessories.html">Accessories</a></li>
+</ul>
+
+                <div class="price-filter-box">
+                    <h3 class="section-title">Price Range</h3>
+                    <input type="range" min="10" max="500" value="250" class="price-slider">
+                    <div class="price-labels">
+                        <span>$10</span>
+                        <span>$500</span>
+                    </div>
+                    <button class="filter-action-btn">Filter</button>
+                </div>
+            </aside>
+
+            <section class="products-area">
+                <div class="products-filter-header">
+                    <p class="results-count">Showing 1–8 of 24 results</p>
+                    <div class="sort-wrapper">
+                        <select class="sort-dropdown">
+                            <option>Sort by: Newest</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                    
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=400" alt="Luxury Sofa">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Luxury Sofa</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(12)</span></div>
+                        <p class="product-price">$120.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&q=80&w=400" alt="Modern Table Lamp">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Modern Table Lamp</h4>
+                        <div class="product-rating">⭐⭐⭐⭐☆ <span class="rating-count">(8)</span></div>
+                        <p class="product-price">$60.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=400" alt="Wall Decoration">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Wall Decoration</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(15)</span></div>
+                        <p class="product-price">$80.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&q=80&w=400" alt="Wooden Chair">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Wooden Chair</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(10)</span></div>
+                        <p class="product-price">$95.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand-col">
+                <h3>Decorify ✿</h3>
+                <p>We provide the best quality home decoration products for your beautiful home.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <h4>Quick Links</h4>
+                <a href="#">Home</a>
+                <a href="#">Products</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-links-col">
+                <h4>Customer Service</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Returns & Refunds</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-links-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get updates on new arrivals and special offers.</p>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2026 Decorify. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

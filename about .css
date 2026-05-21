@@ -1,0 +1,158 @@
+  /* Custom scoped styles for the About page layout */
+        .about-hero {
+            background-color: #fcebeb;
+            padding: 60px 8%;
+            text-align: center;
+        }
+        .about-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 6%;
+        }
+        .story-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 70px;
+        }
+        .story-img img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 12px 32px rgba(217, 136, 136, 0.18);
+        }
+        .story-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #222;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .story-text p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        /* Stats Counter Area */
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: #ffffff;
+            border: 1px solid #f5eae9;
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .stat-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            color: #d98888;
+            margin-bottom: 5px;
+        }
+        .stat-item p {
+            font-size: 13px;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Core Values */
+        .values-section h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+        .value-card {
+            background: #ffffff;
+            border: 1px solid #f5eae9;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 6px;
+            transition: y 0.3s;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+        .value-card i {
+            font-size: 36px;
+            color: #d98888;
+            margin-bottom: 20px;
+        }
+        .value-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .value-card p {
+            font-size: 13.5px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Team Showcase */
+        .team-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .team-card {
+            background: #ffffff;
+            border: 1px solid #f5eae9;
+            border-radius: 6px;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        .team-card img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 18px;
+            border: 3px solid #fce4ec;
+        }
+        .team-card h4 {
+            font-size: 17px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .team-card span {
+            font-size: 13px;
+            color: #d98888;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .team-socials a {
+            color: #aaa;
+            margin: 0 8px;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .team-socials a:hover {
+            color: #d98888;
+        }
+
+        @media(max-width: 900px) {
+            .story-block, .values-grid, .team-grid { grid-template-columns: 1fr; }
+            .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .story-img img { height: 320px; }
+        }
+    </style>

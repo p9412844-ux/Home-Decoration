@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorify - Wall Decor Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <span><i class="fa-solid fa-truck"></i> Free Shipping on Orders Over $100</span>
+        <div class="top-links">
+            <a href="#"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+            <a href="#"><i class="fa-solid fa-circle-question"></i> Help Center</a>
+            <a href="#"><i class="fa-solid fa-user"></i> Login / Register</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <h2>Decorify <span style="color: #d48a8a;">✿</span></h2>
+            <p>Home Decoration</p>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-heart"></i>
+           <div class="cart-icon" style="cursor: pointer;" onclick="location.href='cart.html'">
+    <i class="fa-solid fa-basket-shopping"></i>
+    <span class="cart-count">0</span>
+</div>
+        </div>
+    </header>
+
+    <section class="hero-section" style="padding: 30px 8%; min-height: auto;">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Collection</span>
+                <h1 class="hero-title" style="font-size: 36px; margin-bottom: 5px;">Wall Decoration</h1>
+                <p style="color: #666; font-size: 14px;">Home > Products > Wall Decor</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-wrapper">
+        <div class="container">
+            
+            <aside class="sidebar">
+                <h3 class="section-title">Categories</h3>
+                <ul class="categories-list">
+    <li><i class="fa-solid fa-border-all"></i> <a href="index.html">All Products</a></li>
+    <li><i class="fa-solid fa-chair"></i> <a href="furniture.html">Furniture</a></li>
+    <li><i class="fa-solid fa-image"></i> <a href="wall-decor.html">Wall Decor</a></li>
+    <li><i class="fa-solid fa-lightbulb"></i> <a href="lighting.html">Lighting</a></li>
+    <li><i class="fa-solid fa-seedling"></i> <a href="plants.html">Plants</a></li>
+    <li><i class="fa-solid fa-bag-shopping"></i> <a href="accessories.html">Accessories</a></li>
+</ul>
+
+                <div class="price-filter-box">
+                    <h3 class="section-title">Price Range</h3>
+                    <input type="range" min="10" max="300" value="150" class="price-slider">
+                    <div class="price-labels">
+                        <span>$10</span>
+                        <span>$300</span>
+                    </div>
+                    <button class="filter-action-btn">Filter Wall Decor</button>
+                </div>
+            </aside>
+
+            <section class="products-area">
+                <div class="products-filter-header">
+                    <p class="results-count">Showing 1–8 of 12 wall decor results</p>
+                    <div class="sort-wrapper">
+                        <select class="sort-dropdown">
+                            <option>Sort by: Newest</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid">
+                    
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=400" alt="Wall Decoration">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Pink Abstract Canvas</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(15)</span></div>
+                        <p class="product-price">$50.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=400" alt="Modern Painting">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Minimalist Fluid Art</h4>
+                        <div class="product-rating">⭐⭐⭐⭐☆ <span class="rating-count">(9)</span></div>
+                        <p class="product-price">$65.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1522156373667-4c7234bbdb86?auto=format&fit=crop&q=80&w=400" alt="Boho Wall Hanging">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Boho Macrame Hanging</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(18)</span></div>
+                        <p class="product-price">$35.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1617103996702-96ff29b1c467?auto=format&fit=crop&q=80&w=400" alt="Round Mirror">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Rose Gold Round Mirror</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(24)</span></div>
+                        <p class="product-price">$85.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=400" alt="Nature Frame">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Landscape Photo Frame</h4>
+                        <div class="product-rating">⭐⭐⭐⭐☆ <span class="rating-count">(11)</span></div>
+                        <p class="product-price">$40.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&q=80&w=400" alt="Wall Shelf">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Hexagon Wall Shelves</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(30)</span></div>
+                        <p class="product-price">$45.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&q=80&w=400" alt="Neon Sign">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Cute Pink Neon Sign</h4>
+                        <div class="product-rating">⭐⭐⭐⭐☆ <span class="rating-count">(13)</span></div>
+                        <p class="product-price">$55.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="https://images.unsplash.com/photo-1534349762230-e0cadf78f5db?auto=format&fit=crop&q=80&w=400" alt="Vintage Clock">
+                            <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                        <h4 class="product-name">Vintage Wall Clock</h4>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ <span class="rating-count">(7)</span></div>
+                        <p class="product-price">$70.00</p>
+                        <button class="add-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand-col">
+                <h3>Decorify ✿</h3>
+                <p>We provide the best quality home decoration products for your beautiful home.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-links-col">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="wall-decor.html">Products</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-links-col">
+                <h4>Customer Service</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Returns & Refunds</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-links-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe to get updates on new arrivals and special offers.</p>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2026 Decorify. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
