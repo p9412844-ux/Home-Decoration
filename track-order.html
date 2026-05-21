@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order | Decorify - Home Decoration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fffafb;
+            color: #333;
+        }
+
+        /* --- MODERN HEADER STYLING --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: #ffffff;
+            border-bottom: 1px solid #fcf0ef;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 15px rgba(217, 136, 136, 0.03);
+        }
+
+        .logo h2 {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            color: #222;
+        }
+
+        .logo p {
+            font-size: 10px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #d98888;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .header-icons i, .header-icons button {
+            font-size: 18px;
+            color: #343434;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.2s ease;
+            background: none;
+            border: none;
+            padding: 0;
+            outline: none;
+        }
+
+        .header-icons i:hover, .header-icons button:hover {
+            color: #d98888;
+            transform: scale(1.05);
+        }
+
+        .cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -9px;
+            right: -10px;
+            background: #d98888;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 20px;
+            border: 2px solid #fff;
+        }
+
+        /* --- PREMIUM BANNER --- */
+        .track-banner {
+            background: #fff5f5;
+            padding: 70px 0;
+            text-align: center;
+            border-bottom: 1px solid #fce8e6;
+        }
+
+        .track-banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #2c2c2c;
+            margin-bottom: 8px;
+        }
+
+        .track-banner p {
+            color: #777;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- TRACKING FORM CONTAINER --- */
+        .track-container {
+            max-width: 650px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(217, 136, 136, 0.04);
+            border: 1px solid #fceeeed0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #f2dbda;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            background-color: #fffcfc;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #d98888;
+            background-color: #fff;
+            box-shadow: 0 0 8px rgba(217, 136, 136, 0.1);
+        }
+
+        .track-btn {
+            width: 100%;
+            background: #d98888;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+
+        .track-btn:hover {
+            background: #c77777;
+        }
+
+        .track-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* --- DYNAMIC TIMELINE STATUS (Initially Hidden) --- */
+        .tracking-status-box {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px dashed #fceeeed0;
+            display: none; /* JS will change this to display: block */
+        }
+
+        .info-summary {
+            display: flex;
+            justify-content: space-between;
+            background: #fff9f9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            border: 1px solid #fdf2f1;
+            font-size: 13.5px;
+        }
+
+        /* Timeline Graphics */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* Connective Line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 5%;
+            width: 90%;
+            height: 4px;
+            background: #f2dbda;
+            z-index: 1;
+        }
+
+        /* Line Progress Fill */
+        .timeline-progress {
+            position: absolute;
+            top: 20px;
+            left: 5%;
+            width: 66%; /* This controls how far along the timeline progress line goes (e.g., 33%, 66%, 100%) */
+            height: 4px;
+            background: #d98888;
+            z-index: 1;
+            transition: width 0.5s ease;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 25%;
+        }
+
+        .step-icon {
+            width: 44px;
+            height: 44px;
+            background: #fff;
+            border: 3px solid #f2dbda;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px auto;
+            color: #aaa;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-icon {
+            border-color: #d98888;
+            background: #d98888;
+            color: white;
+            box-shadow: 0 0 12px rgba(217, 136, 136, 0.3);
+        }
+
+        .step.completed .step-icon {
+            border-color: #d98888;
+            background: #fff;
+            color: #d98888;
+        }
+
+        .step-title {
+            font-size: 12px;
+            font-weight: 500;
+            color: #888;
+        }
+
+        .step.active .step-title, .step.completed .step-title {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* --- BRAND FOOTER --- */
+        footer {
+            background: #d77b7b;
+            color: #ffffff;
+            padding: 50px 8% 25px 8%;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-content p {
+            color: #2e1717;
+            font-size: 13.5px;
+            max-width: 480px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2a2a2a;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #241212;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h2>Decorify <span style="color: #d98888;">✿</span></h2>
+            <p>Home Decoration</p>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="header-icons">
+            <button type="button" id="search-trigger-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <i class="fa-regular fa-heart" onclick="location.href='wishlist.html'"></i>
+            <div class="cart-icon" onclick="location.href='cart.html'">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="track-banner">
+        <h1>Track Your Order</h1>
+        <p>Apne order ka live status aur delivery status ba-asaani check karein</p>
+    </div>
+
+    <main class="track-container">
+        <form id="tracking-form" onsubmit="event.preventDefault(); handleTracking();">
+            <div class="form-group">
+                <label for="order-id">ORDER ID / NUMBER</label>
+                <input type="text" id="order-id" placeholder="e.g., #HC-9874" required>
+            </div>
+            <div class="form-group">
+                <label for="phone-number">PHONE NUMBER</label>
+                <input type="tel" id="phone-number" placeholder="e.g., 03001234567" required>
+            </div>
+            <button type="submit" class="track-btn">Track Status</button>
+        </form>
+
+        <div class="tracking-status-box" id="status-display-area">
+            
+            <div class="info-summary">
+                <div><strong>Status:</strong> <span style="color:#d98888; font-weight:600;">On The Way</span></div>
+                <div><strong>Est. Delivery:</strong> <span>2-3 Days</span></div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-progress"></div>
+                
+                <div class="step completed">
+                    <div class="step-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <div class="step-title">Order Placed</div>
+                </div>
+
+                <div class="step completed">
+                    <div class="step-icon"><i class="fa-solid fa-box"></i></div>
+                    <div class="step-title">Packed</div>
+                </div>
+
+                <div class="step active">
+                    <div class="step-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                    <div class="step-title">Shipped</div>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-house-chimney-user"></i></div>
+                    <div class="step-title">Delivered</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Decorify <span style="color: #d98888;">✿</span></h3>
+            <p>Premium modern home decoration items curated especially for your beautiful living space.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Decorify - Hania Collection. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleTracking() {
+            const orderIdValue = document.getElementById('order-id').value.trim();
+            const statusArea = document.getElementById('status-display-area');
+            
+            if(orderIdValue !== "") {
+                // Smoothly slide and reveal tracking timeline
+                statusArea.style.display = "block";
+                statusArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

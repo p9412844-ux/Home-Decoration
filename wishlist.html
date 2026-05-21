@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorify - Your Wishlist</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h2>Decorify <span style="color: #d48a8a;">✿</span></h2>
+            <p>Home Decoration</p>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-icons">
+            <button type="button" id="search-trigger-btn" style="background: none; border: none; font-size: 18px; color: inherit; cursor: pointer;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <i class="fa-solid fa-heart" style="color: #d98888; cursor: pointer;" onclick="location.href='wishlist.html'"></i>
+            <div class="cart-icon" style="cursor: pointer;" onclick="location.href='cart.html'">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 30px; text-align: center;">Your Favorite Items</h2>
+        
+        <div id="wishlist-container" class="products-grid" style="max-width: 1200px; margin: 0 auto;">
+            </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById('wishlist-container');
+            let wishlist = JSON.parse(localStorage.getItem('decorify_wishlist')) || [];
+            
+            // Cart badge count setup
+            let cart = JSON.parse(localStorage.getItem('decorify_cart')) || [];
+            document.querySelector('.cart-count').innerText = cart.length;
+
+            if (wishlist.length === 0) {
+                container.style.display = "block";
+                container.innerHTML = `<p style="text-align: center; color: #888; font-size: 16px; padding: 40px;">Apne abhi tak koi product like nahi kiya. <a href="products.html" style="color:#d98888; text-decoration:none; font-weight:500;">Products Dekhein</a></p>`;
+                return;
+            }
+
+            let htmlContent = '';
+            wishlist.forEach((item, index) => {
+                htmlContent += `
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <h4 class="product-name">${item.name}</h4>
+                        <p class="product-price">${item.price}</p>
+                        <button class="add-cart-btn" style="margin-bottom: 8px;">Add to Cart</button>
+                        <button onclick="removeWishlistItem(${index})" style="background: none; border: 1px solid #f5eae9; color: #ff4d4d; padding: 6px; width: 100%; border-radius: 4px; cursor: pointer; font-size: 12px;">Remove Like</button>
+                    </div>
+                `;
+            });
+            container.innerHTML = htmlContent;
+        });
+
+        function removeWishlistItem(index) {
+            let wishlist = JSON.parse(localStorage.getItem('decorify_wishlist')) || [];
+            wishlist.splice(index, 1);
+            localStorage.setItem('decorify_wishlist', JSON.stringify(wishlist));
+            location.reload();
+        }
+    </script>
+</body>
+</html>

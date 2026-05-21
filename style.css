@@ -459,3 +459,211 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Login Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-card {
+    background: #ffffff;
+    padding: 35px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.open .modal-card {
+    transform: translateY(0);
+}
+.close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+}
+.close-modal-btn:hover {
+    color: #ff4d4d;
+}
+.modal-tabs {
+    display: flex;
+    border-bottom: 2px solid #f5eae9;
+    margin-bottom: 25px;
+}
+.tab-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #888;
+    transition: all 0.2s;
+}
+.tab-btn.active {
+    color: #d98888;
+    border-bottom: 2px solid #d98888;
+    margin-bottom: -2px;
+}
+.modal-form {
+    display: none;
+}
+.modal-form.active {
+    display: block;
+}
+.auth-submit-btn {
+    width: 100%;
+    background-color: #d98888;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+.auth-submit-btn:hover {
+    background-color: #c57676;
+}
+
+/* ==========================================
+   RESPONSIVE BURGER MENU SYSTEM
+   ========================================== */
+
+/* ==========================================
+   RESPONSIVE BURGER MENU SYSTEM (FIXED)
+   ========================================== */
+
+@media (max-width: 768px) {
+    /* Top Bar Adjustment */
+    .top-bar {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 4%;
+        text-align: center;
+    }
+    .top-links {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* 🌟 Header Stretch & Layout Fix */
+    header {
+        padding: 15px 3% !important; /* Side padding kam ki taaki icons right edge ke kareeb ho jayein */
+        position: relative;
+    }
+
+    /* 🌟 Header Icons Container Fix */
+    .header-icons {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Sab icons ka aapas ka gap set kiya */
+    }
+
+    .header-icons i, 
+    .header-icons button {
+        margin-left: 10px !important; /* Purana heavy margin reset kiya */
+        font-size: 18px;
+    }
+
+    /* 🍔 3 Lines Burger Button Positioning */
+    .menu-toggle {
+        display: block !important;
+        margin-left: 12px !important; /* Basket se thoda sa mazeed door karne ke liye */
+        padding: 4px;
+        font-size: 22px !important; /* Thoda sa distinct look dene ke liye size barhaya */
+        color: #555555;
+        order: 5; /* Ensure karega ke burger menu sab se aakhir (right side) par hi rahe */
+    }
+
+    /* 📱 Hide Main Navigation and Make it Dropdown */
+    nav {
+        display: none; 
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+        box-shadow: 0 10px 20px rgba(217, 136, 136, 0.08);
+        border-bottom: 2px solid #fff5f5;
+        z-index: 998;
+    }
+
+    /* When menu is active/open */
+    nav.active {
+        display: flex !important; 
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+        padding: 5px 0;
+        font-size: 15px;
+        margin: 0; /* Reset desktop horizontal margin */
+    }
+    
+    /* Baki Grid responsive shifts layout */
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        margin-bottom: 30px;
+    }
+    .hero-image-wrapper {
+        justify-content: center;
+    }
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+}
+/* 🍔 Desktop View par 3 lines hidden rahengi */
+.menu-toggle {
+    display: none !important; /* !important lagayein taaki koi aur style ise overwrite na kare */
+    cursor: pointer;
+}
+@media(max-width: 768px) {
+    /* ... baqi mobile styles ... */
+
+    /* 🍔 Sirf mobile view par 3 lines show hongi */
+    .menu-toggle {
+        display: block !important;
+        margin-left: 16px !important;
+        padding: 4px;
+        font-size: 22px !important;
+        color: #555555;
+        z-index: 1001 !important;
+    }
+}

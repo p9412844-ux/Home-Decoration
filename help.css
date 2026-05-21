@@ -1,0 +1,216 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fffafb; /* Soft elegant pinkish-white background */
+            color: #333;
+        }
+
+        /* --- MODERN HEADER STYLING --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: #ffffff;
+            border-bottom: 1px solid #fcf0ef;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 15px rgba(217, 136, 136, 0.03);
+        }
+
+        .logo h2 {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            color: #222;
+        }
+
+        .logo p {
+            font-size: 10px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: #d98888;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .header-icons i, .header-icons button {
+            font-size: 18px;
+            color: #343434;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.2s ease;
+            background: none;
+            border: none;
+            padding: 0;
+            outline: none;
+        }
+
+        .header-icons i:hover, .header-icons button:hover {
+            color: #d98888;
+            transform: scale(1.05);
+        }
+
+        .cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -9px;
+            right: -10px;
+            background: #d98888;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 20px;
+            border: 2px solid #fff;
+        }
+
+        /* --- PREMIUM HELP BANNER --- */
+        .help-banner {
+            background: #fff5f5; /* Theme Matching Soft Pink solid accent block */
+            padding: 70px 0;
+            text-align: center;
+            border-bottom: 1px solid #fce8e6;
+        }
+
+        .help-banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #2c2c2c;
+            margin-bottom: 8px;
+        }
+
+        .help-banner p {
+            color: #777;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- FAQ ACCORDION SECTION --- */
+        .help-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 35px 45px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(217, 136, 136, 0.04);
+            border: 1px solid #fceeeed0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #fdf2f1;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 500;
+            color: #3b3b3b;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .faq-question:hover {
+            color: #d98888;
+        }
+
+        .faq-icon {
+            color: #d98888;
+            font-size: 22px;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: #666;
+            font-size: 14.5px;
+            line-height: 1.7;
+        }
+
+        .faq-answer p {
+            padding: 12px 10px 4px 0;
+        }
+
+        /* --- BRAND FOOTER --- */
+        footer {
+            background: #1a1a1a;
+            color: #dacccc;
+            padding: 50px 8% 25px 8%;
+            margin-top: 120px;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-content p {
+            color: #1a0e0e;
+            font-size: 13.5px;
+            max-width: 480px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2a2a2a;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #201212;
+            letter-spacing: 0.5px;
+        }
+    

@@ -9,12 +9,29 @@
 </head>
 <body>
 
+    <div id="search-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center; z-index: 10000; opacity: 0; pointer-events: none; transition: all 0.4s ease;">
+    
+    <button type="button" id="close-search-btn" style="position: absolute; top: 40px; right: 50px; background: none; border: none; font-size: 40px; color: #333; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='rotate(90deg)'" onmouseout="this.style.transform='rotate(0deg)'">&times;</button>
+    
+    <div style="width: 90%; max-width: 650px; text-align: center; position: relative;">
+        <div style="display: flex; align-items: center; border-bottom: 2px solid #d98888; padding-bottom: 12px; margin-bottom: 5px;">
+            <input type="text" id="modern-search-input" placeholder="Search furniture, plants, decor..." autocomplete="off" style="width: 100%; border: none; background: transparent; font-size: 26px; outline: none; color: #333; font-family: inherit;">
+            <span style="font-size: 22px; color: #d98888;"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+        
+        <div id="search-suggestions" style="position: absolute; top: 50px; left: 0; width: 100%; background: #fff; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: left; max-height: 250px; overflow-y: auto; z-index: 10001; display: none; border: 1px solid #f5eae9;">
+            </div>
+
+        <p style="font-size: 13px; color: #a0a0a0; letter-spacing: 0.5px; margin-top: 20px;">Type item name to get instant suggestions, or press ESC to close.</p>
+    </div>
+</div>
+
     <div class="top-bar">
         <span><i class="fa-solid fa-truck"></i> Free Shipping on Orders Over $100</span>
         <div class="top-links">
-            <a href="#"><i class="fa-solid fa-location-dot"></i> Track Order</a>
-            <a href="#"><i class="fa-solid fa-circle-question"></i> Help Center</a>
-            <a href="#"><i class="fa-solid fa-user"></i> Login / Register</a>
+            <a href="/track-order.html"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+            <a href="/help.html"><i class="fa-solid fa-circle-question"></i> Help Center</a>
+            <a href="/login.html"><i class="fa-solid fa-user"></i> Login / Register</a>
         </div>
     </div>
 
@@ -23,20 +40,28 @@
             <h2>Decorify <span style="color: #d48a8a;">✿</span></h2>
             <p>Home Decoration</p>
         </div>
-        <nav>
-            <a href="/index.html">Home</a>
+        
+        <nav id="navbar-links">
+            <a href="index.html">Home</a>
             <a href="products.html">Products</a>
-            <a href="/about.html">About Us</a>
+            <a href="about.html">About Us</a>
             <a href="contact.html">Contact</a>
         </nav>
+        
         <div class="header-icons">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-regular fa-heart"></i>
-           <div class="cart-icon" style="cursor: pointer;" onclick="location.href='cart.html'">
-    <i class="fa-solid fa-basket-shopping"></i>
-    <span class="cart-count">0</span>
+    <button type="button" id="search-trigger-btn" style="background: none; border: none; font-size: 18px; color: inherit; cursor: pointer;">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+    <i class="fa-regular fa-heart" style="cursor: pointer;"></i>
+    <div class="cart-icon" style="cursor: pointer;">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span class="cart-count">0</span>
+    </div>
+    
+    <div class="menu-toggle" id="mobile-menu-btn" style="cursor: pointer;">
+        <i class="fa-solid fa-bars"></i>
+    </div>
 </div>
-        </div>
     </header>
 
     <section class="hero-section">
@@ -45,7 +70,9 @@
                 <span class="hero-subtitle">Beautiful Home</span>
                 <h1 class="hero-title">Decorative Collection</h1>
                 <p class="hero-description">Make your home more elegant and beautiful with our unique collection.</p>
-                <button class="shop-now-btn">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+
+                <button onclick="location.href='products.html'" class="shop-now-btn">Shop Now</button>
+
             </div>
             <div class="hero-image-wrapper">
                 <div class="hero-bg-accent"></div>
@@ -60,12 +87,12 @@
             <aside class="sidebar">
                 <h3 class="section-title">Categories</h3>
                 <ul class="categories-list">
-    <li><i class="fa-solid fa-border-all"></i> <a href="index.html">All Products</a></li>
-    <li><i class="fa-solid fa-chair"></i> <a href="furniture.html">Furniture</a></li>
-    <li><i class="fa-solid fa-image"></i> <a href="wall-decor.html">Wall Decor</a></li>
-    <li><i class="fa-solid fa-lightbulb"></i> <a href="lighting.html">Lighting</a></li>
-    <li><i class="fa-solid fa-seedling"></i> <a href="plants.html">Plants</a></li>
-    <li><i class="fa-solid fa-bag-shopping"></i> <a href="accessories.html">Accessories</a></li>
+    <li><i class="fa-solid fa-border-all"></i> <a href="/index.html">All Products</a></li>
+    <li><i class="fa-solid fa-chair"></i> <a href="/furniture.html">Furniture</a></li>
+    <li><i class="fa-solid fa-image"></i> <a href="/wall-decor.html">Wall Decor</a></li>
+    <li><i class="fa-solid fa-lightbulb"></i> <a href="/lighting.html">Lighting</a></li>
+    <li><i class="fa-solid fa-seedling"></i> <a href="/plants.html">Plants</a></li>
+    <li><i class="fa-solid fa-bag-shopping"></i> <a href="/accessories.html">Accessories</a></li>
 </ul>
 
                 <div class="price-filter-box">
@@ -141,6 +168,7 @@
             </section>
         </div>
     </main>
+    
 
     <footer>
         <div class="footer-inner">
@@ -182,6 +210,43 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <div id="login-modal" class="modal-overlay">
+    <div class="modal-card">
+        <button class="close-modal-btn">&times;</button>
+        <div class="modal-tabs">
+            <span class="tab-btn active" id="tab-login">Login</span>
+            <span class="tab-btn" id="tab-register">Register</span>
+        </div>
+        
+        <form id="login-form" class="modal-form active">
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="example@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="auth-submit-btn">Sign In</button>
+        </form>
+
+        <form id="register-form" class="modal-form">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="example@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label>Create Password</label>
+                <input type="password" placeholder="Minimum 6 characters" required>
+            </div>
+            <button type="submit" class="auth-submit-btn">Create Account</button>
+        </form>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
