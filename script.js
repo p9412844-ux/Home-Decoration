@@ -51,55 +51,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ==========================================
-    // 3. DYNAMIC WISHLIST (LIKE) SYSTEM
-    // ==========================================
-    const heartButtons = document.querySelectorAll('.wishlist-btn i');
-    
-    heartButtons.forEach(heart => {
-        const productCard = heart.closest('.product-card');
+   // ==========================================
+// 3. DYNAMIC WISHLIST (LIKE) SYSTEM - DIRECT CLICK
+// ==========================================
+document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation(); // Block clicks from propagating
+
+        const heartIcon = btn.querySelector('i');
+        if (!heartIcon) return;
+
+        // Visual Toggle (Product Cards and Header Heart)
+        if (heartIcon.classList.contains('fa-regular')) {
+            heartIcon.className = 'fa-solid fa-heart';
+            heartIcon.style.color = "#d98888";
+            console.log("❤️ Wishlist: Item Added.");
+        } else {
+            heartIcon.className = 'fa-regular fa-heart';
+            heartIcon.style.color = "#a0a0a0";
+            console.log("🤍 Wishlist: Item Removed.");
+        }
+
+        // Optional: LocalStorage update for product cards
+        const productCard = btn.closest('.product-card');
         if (productCard) {
             const productName = productCard.querySelector('.product-name').innerText;
-            if (wishlist.some(item => item.name === productName)) {
-                heart.classList.remove('fa-regular');
-                heart.classList.add('fa-solid');
-                heart.style.color = "#d98888";
-            }
-        }
-    });
-
-    heartButtons.forEach(heart => {
-        heart.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            const productCard = heart.closest('.product-card');
-            if (!productCard) return;
-
-            const productName = productCard.querySelector('.product-name').innerText;
-            const productPrice = productCard.querySelector('.product-price').innerText;
             const productImage = productCard.querySelector('.product-img-box img').src;
+            const productPrice = productCard.querySelector('.product-price').innerText;
 
-            const itemObj = { 
-                name: productName, 
-                price: productPrice, 
-                image: productImage 
-            };
-
-            if (heart.classList.contains('fa-regular')) {
-                heart.classList.remove('fa-regular');
-                heart.classList.add('fa-solid');
-                heart.style.color = "#d98888";
-                wishlist.push(itemObj);
+            let currentWishlist = JSON.parse(localStorage.getItem('decorify_wishlist')) || [];
+            
+            if (heartIcon.classList.contains('fa-solid')) {
+                currentWishlist.push({name: productName, price: productPrice, image: productImage});
             } else {
-                heart.classList.remove('fa-solid');
-                heart.classList.add('fa-regular');
-                heart.style.color = "#a0a0a0";
-                wishlist = wishlist.filter(item => item.name !== productName);
+                currentWishlist = currentWishlist.filter(item => item.name !== productName);
             }
-
-            localStorage.setItem('decorify_wishlist', JSON.stringify(wishlist));
-        });
-    });
+            localStorage.setItem('decorify_wishlist', JSON.stringify(currentWishlist));
+        }
+    };
+});
 
     // ==========================================
     // 4. LOGIN / REGISTER MODAL POPUP SYSTEM
@@ -274,41 +265,80 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
-});
-// ==========================================
-// 7. MOBILE RESPONSIVE HAMBURGER MENU (FORCED DIRECT CLICK)
-// ==========================================
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const navbarLinks = document.getElementById('navbar-links');
 
-if (mobileMenuBtn && navbarLinks) {
-    // Direct handler lagaya taaki kisi bhi tarah click miss na ho
-    mobileMenuBtn.onclick = function(e) {
-        e.stopPropagation(); // Taaki document click isko band na kare
-        
-        navbarLinks.classList.toggle('active');
-        
-        const icon = mobileMenuBtn.querySelector('i');
-        if (icon) {
-            if (navbarLinks.classList.contains('active')) {
-                icon.className = 'fa-solid fa-xmark'; // Bars se X icon ban jaye
-                icon.style.color = "#d98888"; 
-            } else {
-                icon.className = 'fa-solid fa-bars'; // Wapas bars ban jaye
-                icon.style.color = "#555555";
-            }
-        }
-    };
+    // ==========================================
+    // 7. MOBILE RESPONSIVE HAMBURGER MENU (INSIDE DOMContentLoaded)
+    // ==========================================
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navbarLinks = document.getElementById('navbar-links');
 
-    // Menu ke bahar kahin bhi click ho toh menu band ho jaye
-    document.onclick = function(e) {
-        if (!navbarLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            navbarLinks.classList.remove('active');
+    if (mobileMenuBtn && navbarLinks) {
+        mobileMenuBtn.onclick = function(e) {
+            e.stopPropagation(); 
+            
+            navbarLinks.classList.toggle('active');
+            
             const icon = mobileMenuBtn.querySelector('i');
             if (icon) {
-                icon.className = 'fa-solid fa-bars';
-                icon.style.color = "#555555";
+                if (navbarLinks.classList.contains('active')) {
+                    icon.className = 'fa-solid fa-xmark'; 
+                    icon.style.color = "#d98888"; 
+                } else {
+                    icon.className = 'fa-solid fa-bars'; 
+                    icon.style.color = "#555555";
+                }
             }
+        };
+
+        document.onclick = function(e) {
+            if (!navbarLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navbarLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.className = 'fa-solid fa-bars';
+                    icon.style.color = "#555555";
+                }
+            }
+        };
+    }
+
+}); // DOMContentLoaded closing bracket bilkul sahi end par
+
+// ==========================================
+// FOOTER NEWSLETTER SUBSCRIPTION SYSTEM
+// ==========================================
+const newsletterForm = document.getElementById('newsletter-form');
+const newsletterEmail = document.getElementById('newsletter-email');
+const newsletterMessage = document.getElementById('newsletter-message');
+
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Page ko refresh hone se rokne ke liye
+
+        const emailValue = newsletterEmail.value.trim();
+
+        if (emailValue !== "") {
+            // 1. LocalStorage mein subscriber email save karna
+            let subscribers = JSON.parse(localStorage.getItem('decorify_subscribers')) || [];
+            
+            // Check karna ke kahin yeh email pehle se subscribed toh nahi
+            if (!subscribers.includes(emailValue)) {
+                subscribers.push(emailValue);
+                localStorage.setItem('decorify_subscribers', JSON.stringify(subscribers));
+            }
+
+            // 2. Screen par success message dikhana
+            newsletterMessage.textContent = "Thank you for subscribing! ✿";
+            newsletterMessage.style.color = "#fff"; // Rose/white theme ke mutabiq text color
+            newsletterMessage.style.display = "block";
+
+            // 3. Input field ko khali karna
+            newsletterEmail.value = "";
+
+            // 4. 4 seconds baad message ko gayab karna
+            setTimeout(() => {
+                newsletterMessage.style.display = "none";
+            }, 4000);
         }
-    };
+    });
 }

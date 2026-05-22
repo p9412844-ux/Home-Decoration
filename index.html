@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <header>
+  <header>
         <div class="logo">
             <h2>Decorify <span style="color: #d48a8a;">✿</span></h2>
             <p>Home Decoration</p>
@@ -49,19 +49,23 @@
         </nav>
         
         <div class="header-icons">
-    <button type="button" id="search-trigger-btn" style="background: none; border: none; font-size: 18px; color: inherit; cursor: pointer;">
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
-    <i class="fa-regular fa-heart" style="cursor: pointer;"></i>
-    <div class="cart-icon" style="cursor: pointer;">
-        <i class="fa-solid fa-basket-shopping"></i>
-        <span class="cart-count">0</span>
-    </div>
-    
-    <div class="menu-toggle" id="mobile-menu-btn" style="cursor: pointer;">
-        <i class="fa-solid fa-bars"></i>
-    </div>
-</div>
+            <button type="button" id="search-trigger-btn" style="background: none; border: none; font-size: 18px; color: inherit; cursor: pointer;">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            
+            <a href="wishlist.html" class="header-wishlist-link" style="color: inherit; text-decoration: none; display: inline-block;">
+                <i class="fa-regular fa-heart" style="cursor: pointer; font-size: 19px;"></i>
+            </a>
+            
+            <a href="cart.html" class="cart-icon" style="color: inherit; text-decoration: none; display: inline-block; position: relative; cursor: pointer;">
+                <i class="fa-solid fa-basket-shopping" style="font-size: 19px;"></i>
+                <span class="cart-count">0</span>
+            </a>
+            
+            <div class="menu-toggle" id="mobile-menu-btn" style="cursor: pointer;">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
     </header>
 
     <section class="hero-section">
@@ -75,7 +79,6 @@
 
             </div>
             <div class="hero-image-wrapper">
-                <div class="hero-bg-accent"></div>
                 <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=600" alt="Beautiful Pink Interior Decor" class="hero-img">
             </div>
         </div>
@@ -176,34 +179,39 @@
                 <h3>Decorify ✿</h3>
                 <p>We provide the best quality home decoration products for your beautiful home.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
             <div class="footer-links-col">
                 <h4>Quick Links</h4>
-                <a href="#">Home</a>
-                <a href="#">Products</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
+                <a href="/index.html">Home</a>
+                <a href="/products.html">Products</a>
+                <a href="/about.html">About Us</a>
+                <a href="/contact.html">Contact Us</a>
             </div>
             <div class="footer-links-col">
                 <h4>Customer Service</h4>
-                <a href="#">Help Center</a>
-                <a href="#">Returns & Refunds</a>
-                <a href="#">Shipping Info</a>
-                <a href="#">Privacy Policy</a>
+                <a href="/help.html">Help Center</a>
+                <a href="/returns-refunds.html">Returns & Refunds</a>
+                <a href="/shipping-info.html">Shipping Info</a>
+                <a href="/privacy-policy.html">Privacy Policy</a>
             </div>
-            <div class="footer-links-col">
-                <h4>Newsletter</h4>
-                <p>Subscribe to get updates on new arrivals and special offers.</p>
-                <div class="subscribe-form">
-                    <input type="email" placeholder="Enter your email">
-                    <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
-                </div>
-            </div>
+           <div class="footer-column">
+    <h3>Newsletter</h3>
+    <p>Subscribe to get updates on new arrivals and special offers.</p>
+    
+    <form id="newsletter-form" style="position: relative; display: flex; align-items: center; gap: 5px;">
+        <input type="email" id="newsletter-email" placeholder="Enter your email" required style="width: 100%; padding: 10px; border: none; border-radius: 4px; outline: none;">
+        <button type="submit" style="background: #333; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer;">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </form>
+    
+    <div id="newsletter-message" style="margin-top: 10px; font-size: 14px; font-weight: 500; display: none;"></div>
+</div>
         </div>
         <div class="footer-copyright">
             &copy; 2026 Decorify. All Rights Reserved.

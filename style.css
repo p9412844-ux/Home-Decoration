@@ -179,21 +179,15 @@ nav a.active, nav a:hover {
     grid-template-columns: 260px 1fr;
     gap: 40px;
 }
-
 /* Sidebar Layout */
-.section-title {
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #d98888;
-    border-bottom: 1px solid #f3e6e6;
-    padding-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+
+/* 🌟 Is section ko update kiya hai taaki links ka rang aur underline theek ho sake */
+.categories-list li a {
+    text-decoration: none !important; /* Underline khatam karne ke liye */
+    color: #6466b1; /* Default dark grey rang jo aapki site par chal raha hai */
+    transition: color 0.2s ease;
 }
-.categories-list {
-    list-style: none;
-    margin-bottom: 35px;
-}
+
 .categories-list li {
     padding: 11px 16px;
     margin-bottom: 6px;
@@ -206,11 +200,26 @@ nav a.active, nav a:hover {
     gap: 12px;
     transition: all 0.2s ease;
 }
-.categories-list li.active, .categories-list li:hover {
+
+/* 🌸 Hover karne par ya active hone par text ka color aapka theme color ho jaye */
+.categories-list li.active, 
+.categories-list li:hover,
+.categories-list li:hover a,
+.categories-list li.active a {
     background-color: #fcebeb;
-    color: #d98888;
+    color: #d98888 !important; /* Rose-pink theme color */
     font-weight: 500;
 }
+.section-title {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #d98888;
+    border-bottom: 1px solid #f3e6e6;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .price-slider {
     width: 100%;
     accent-color: #d98888;
